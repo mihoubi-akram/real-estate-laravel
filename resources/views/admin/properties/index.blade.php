@@ -27,7 +27,7 @@
                 <td class="px-4 py-2 border border-gray-300">{{ $property->city }}</td>
                 <td class="px-4 py-2 border border-gray-300 ">
                     <div class="flex gap-2 justify-center">
-                        <a href="" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</a>
+                        <a href="{{route('admin.property.edit',$property)}}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</a>
                         <form action="{{route('admin.property.destroy',$property)}}" method="post">
                             @csrf
                             @method("delete")

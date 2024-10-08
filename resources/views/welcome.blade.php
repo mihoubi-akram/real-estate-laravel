@@ -8,8 +8,8 @@
 <title>@yield('title') | Admin</title>
 <body>
   <x-navbar :options="[
-    ['name' => 'Biens', 'link' => '/admin/bien'],
-    ['name' => 'Options', 'link' => '/contact']]" />
+    ['name' => 'Biens', 'link' => '/admin/property'],
+    ['name' => 'Options', 'link' => '/contact']]" ></x-navbar>
     @if(session('success'))
       <div id="alert" class="fixed top-15 right-15 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded shadow-md w-100 max-w-sm w-full" role="alert">
           <strong class="font-bold">Success!</strong>
