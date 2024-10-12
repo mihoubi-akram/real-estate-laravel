@@ -1,13 +1,14 @@
 @extends('../welcome')
 
-@section('title','edit property')
+@section('title',$property->exists ? "Edit property" : "Add new property")
 
 @section('content')
 <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md mt-10 p-8">
-    <h2 class="text-3xl font-semibold text-blue-500 mb-8 text-center">Edit Property</h2>
-    <form action="{{route('admin.property.update',$property)}}" method="post">
+    <h2 class="text-3xl font-semibold text-blue-500 mb-8 text-center">{{ $property->exists ? 'Edit Property' : 'Create New Property' }}</h2>
+    <form action="{{route($property->exists ? 'admin.property.update' : 'admin.property.store',$property)}}" method="post">
         @csrf
-        @method('PUT')
+        @method($property->exists ? 'PUT': 'post')
+
         @if ($errors->any())
         <div class="bg-red-100 text-red-700 p-4 mb-6 rounded-lg">
             <ul class="list-disc pl-5">
@@ -34,7 +35,9 @@
 
         <div class="flex justify-end mt-8">
             <a href="{{ route('admin.property')}}" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 mr-4">Cancel</a>
-            <x-button type="submit" buttonClass="bg-blue-500 hover:bg-blue-600">Update Property</x-button>
+            <x-button type="submit" buttonClass="bg-blue-500 hover:bg-blue-600">
+                {{ $property->exists ? 'Update' : 'Add' }}
+            </x-button>
         </div>
 
     </form>

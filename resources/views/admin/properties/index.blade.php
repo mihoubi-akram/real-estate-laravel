@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="flex justify-end items-end my-10">
-    <a href="" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+    <a href="{{route('admin.property.create')}}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
         Add property
     </a>
 </div>

@@ -23,12 +23,14 @@ class PropertyController extends Controller
     public function create()
     {
          return view('admin.properties.form',[
-            'property' => new Property(),
-        ]);
+            'property' => new Property()
+        ]);   
     }
-
+    public function store(PropertyFormRequest $request){
+        $property = Property::create($request->validated());
+        return to_route('admin.property')->with("success" , "Le bien a bien été créé");
+    }
     public function destroy(Property $property){
-       
         $property->delete();
         return redirect()->route('admin.property')->with('success', 'Property deleted successfully!');
     }
